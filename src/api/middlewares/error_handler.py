@@ -1,11 +1,8 @@
-# src/api/middlewares/error_handler.py
-
 import logging
 from fastapi import Request, status
 from fastapi.responses import JSONResponse
 
 logger = logging.getLogger(__name__)
-
 
 async def global_error_handler(request: Request, exc: Exception) -> JSONResponse:
     """Captura erros não tratados e retorna resposta padronizada."""

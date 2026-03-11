@@ -1,6 +1,3 @@
-# src/infrastructure/graph/nodes/analyzer_nodes.py
-# Apenas o método run() muda — escreve em raw_findings
-
 import json
 import logging
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -14,7 +11,6 @@ from src.core.entities.analysis_result import Finding, SeverityLevel
 from src.config.settings import settings
 
 logger = logging.getLogger(__name__)
-
 
 class AnalyzerNode:
     def __init__(self, analysis_type: AnalysisType) -> None:
@@ -53,7 +49,6 @@ class AnalyzerNode:
                 f"{len(findings)} findings encontrados"
             )
 
-            # ✅ Escreve em raw_findings (acumulado) não em findings
             return {"raw_findings": findings}
 
         except Exception as e:
@@ -105,8 +100,6 @@ class AnalyzerNode:
             clean = "\n".join(lines[1:-1]).strip()
         return clean
 
-
-# ── Instâncias ──────────────────────────────────────────────────────────────
 _architecture_analyzer  = AnalyzerNode(AnalysisType.ARCHITECTURE)
 _solid_analyzer         = AnalyzerNode(AnalysisType.SOLID)
 _performance_analyzer   = AnalyzerNode(AnalysisType.PERFORMANCE)

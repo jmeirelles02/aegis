@@ -1,5 +1,3 @@
-# src/infrastructure/graph/aegis_graph.py
-
 import logging
 from langgraph.graph import StateGraph, START, END
 
@@ -19,7 +17,6 @@ from src.infrastructure.graph.nodes.summary_node import summary_node
 
 logger = logging.getLogger(__name__)
 
-# Singleton interno
 _aegis_graph = None
 
 
@@ -27,7 +24,6 @@ def build_aegis_graph():
     """Constrói e compila o grafo do Aegis."""
     graph = StateGraph(AegisState)
 
-    # ── Registrar nós ──────────────────────────────────────────
     graph.add_node("input_node",         input_node)
     graph.add_node("routing_node",       routing_node)
     graph.add_node("architecture_node",  architecture_node)
@@ -39,11 +35,9 @@ def build_aegis_graph():
     graph.add_node("aggregator_node",    aggregator_node)
     graph.add_node("summary_node",       summary_node)
 
-    # ── Edges fixas ────────────────────────────────────────────
     graph.add_edge(START,        "input_node")
     graph.add_edge("input_node", "routing_node")
 
-    # ── Edge condicional ───────────────────────────────────────
     graph.add_conditional_edges(
         "routing_node",
         route_to_analyzers,
@@ -57,7 +51,6 @@ def build_aegis_graph():
         },
     )
 
-    # ── Analyzers → Aggregator ─────────────────────────────────
     for node in [
         "architecture_node",
         "solid_node",
@@ -68,7 +61,6 @@ def build_aegis_graph():
     ]:
         graph.add_edge(node, "aggregator_node")
 
-    # ── Aggregator → Summary → END ─────────────────────────────
     graph.add_edge("aggregator_node", "summary_node")
     graph.add_edge("summary_node",    END)
 
@@ -89,5 +81,4 @@ def get_aegis_graph():
     return _aegis_graph
 
 
-# Compatibilidade com imports diretos (test_step3.py)
 aegis_graph = get_aegis_graph()

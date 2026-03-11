@@ -17,7 +17,6 @@ from src.infrastructure.llm.prompts.base import BASE_SYSTEM_PROMPT
 
 logger = logging.getLogger(__name__)
 
-
 class GeminiClient(LLMGateway):
     """
     Implementação concreta do LLMGateway usando Google Gemini.
@@ -86,7 +85,6 @@ class GeminiClient(LLMGateway):
 
         response = await self._llm.ainvoke(messages)
 
-        # ✅ CORREÇÃO: extrai o texto independente do formato da resposta
         raw_content = self._extract_text(response.content)
 
         findings = self._parse_findings(raw_content, analysis_type)
@@ -128,7 +126,6 @@ Retorne APENAS o JSON, sem texto adicional.
 
         response = await self._llm.ainvoke(messages)
 
-        # ✅ CORREÇÃO: extrai o texto independente do formato da resposta
         raw = self._extract_text(response.content)
 
         return self._parse_summary(raw, findings)
@@ -175,11 +172,9 @@ Retorne APENAS o JSON, sem texto adicional.
         - str: "{ ... }"
         - list: [{'type': 'text', 'text': '{ ... }'}]
         """
-        # Caso 1: já é string
         if isinstance(content, str):
             return content
 
-        # Caso 2: lista de dicts (formato multimodal do Gemini)
         if isinstance(content, list):
             texts = []
             for item in content:
@@ -189,7 +184,6 @@ Retorne APENAS o JSON, sem texto adicional.
                     texts.append(item)
             return "\n".join(texts)
 
-        # Fallback: converte para string
         return str(content)
 
     @staticmethod
@@ -200,10 +194,8 @@ Retorne APENAS o JSON, sem texto adicional.
         """
         clean = raw.strip()
 
-        # Remove bloco ```json ... ``` ou ``` ... ```
         if clean.startswith("```"):
             lines = clean.split("\n")
-            # Remove primeira linha (```json ou ```) e última (```)
             clean = "\n".join(lines[1:-1]).strip()
 
         return clean

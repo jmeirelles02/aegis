@@ -1,19 +1,15 @@
-# src/core/entities/analysis_result.py
-
 from pydantic import BaseModel, Field
 from datetime import datetime, timezone
 from enum import Enum
 import uuid
 
-
 class SeverityLevel(str, Enum):
     """Nível de severidade de um problema encontrado."""
-    CRITICAL = "critical"   # Blocker — deve ser resolvido
-    HIGH     = "high"       # Alta prioridade
-    MEDIUM   = "medium"     # Prioridade média
-    LOW      = "low"        # Melhoria desejável
-    INFO     = "info"       # Informativo
-
+    CRITICAL = "critical"# Blocker — deve ser resolvido
+    HIGH     = "high"# Alta prioridade
+    MEDIUM   = "medium"# Prioridade média
+    LOW      = "low"# Melhoria desejável
+    INFO     = "info"# Informativo
 
 class Finding(BaseModel):
     """
@@ -29,7 +25,6 @@ class Finding(BaseModel):
         description="Exemplo de código ilustrando a solução (opcional)",
     )
 
-
 class AnalysisSummary(BaseModel):
     """Resumo executivo da análise."""
     overall_score: int = Field(ge=0, le=100, description="Score geral de 0 a 100")
@@ -37,7 +32,6 @@ class AnalysisSummary(BaseModel):
     critical_issues: int = Field(description="Quantidade de issues críticos")
     quick_wins: list[str] = Field(description="Melhorias rápidas de alto impacto")
     verdict: str = Field(description="Veredicto final do Shadow Architect")
-
 
 class AnalysisResult(BaseModel):
     """

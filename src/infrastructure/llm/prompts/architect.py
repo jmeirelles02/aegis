@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/architect.py
-
 ARCHITECTURE_ANALYSIS_PROMPT = """
 ## Análise de Arquitetura de Software
 

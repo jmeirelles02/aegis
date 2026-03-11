@@ -1,12 +1,9 @@
-# src/api/routes/health.py
-
 from fastapi import APIRouter
 from src.api.schemas import HealthResponse
 from src.core.dependencies import get_llm_gateway
 from src.config.settings import settings
 
 router = APIRouter(tags=["Health"])
-
 
 @router.get(
     "/health",

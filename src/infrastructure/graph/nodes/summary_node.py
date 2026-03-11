@@ -1,6 +1,3 @@
-# src/infrastructure/graph/nodes/summary_node.py
-# Apenas a leitura do estado muda
-
 import json
 import logging
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -17,7 +14,6 @@ logger = logging.getLogger(__name__)
 async def summary_node(state: AegisState) -> dict:
     """Gera o veredicto final como Shadow Architect."""
 
-    # ✅ Lê de findings (lista final limpa)
     findings = state.get("findings", [])
     request = state["request"]
 

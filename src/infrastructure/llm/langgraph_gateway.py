@@ -1,5 +1,3 @@
-# src/infrastructure/llm/langgraph_gateway.py
-
 import time
 import logging
 from src.core.interfaces.llm_gateway import LLMGateway

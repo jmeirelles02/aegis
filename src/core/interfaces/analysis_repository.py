@@ -1,8 +1,5 @@
-# src/core/interfaces/analysis_repository.py
-
 from abc import ABC, abstractmethod
 from src.core.entities.analysis_result import AnalysisResult
-
 
 class AnalysisRepository(ABC):
     """

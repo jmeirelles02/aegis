@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/data_pipeline.py
-
 DATA_PIPELINE_PROMPT = """
 ## Análise de Pipeline de Dados
 

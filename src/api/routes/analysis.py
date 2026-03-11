@@ -1,5 +1,3 @@
-# src/api/routes/analysis.py
-
 from fastapi import APIRouter, HTTPException, status
 from src.api.schemas import (
     AnalysisRequestSchema,
@@ -16,7 +14,6 @@ from src.core.dependencies import (
 from src.core.entities.analysis_request import AnalysisRequest
 
 router = APIRouter(prefix="/analyses", tags=["Analysis"])
-
 
 @router.post(
     "/",
@@ -60,7 +57,6 @@ async def create_analysis(body: AnalysisRequestSchema) -> AnalysisResponse:
             detail=f"Erro interno: {str(e)}",
         )
 
-
 @router.get(
     "/",
     response_model=AnalysisListResponse,
@@ -82,7 +78,6 @@ async def list_analyses() -> AnalysisListResponse:
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro interno: {str(e)}",
         )
-
 
 @router.get(
     "/{analysis_id}",

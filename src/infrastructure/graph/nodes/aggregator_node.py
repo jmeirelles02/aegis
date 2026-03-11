@@ -1,5 +1,3 @@
-# src/infrastructure/graph/nodes/aggregator_node.py
-
 import logging
 from src.infrastructure.graph.state import AegisState
 from src.core.entities.analysis_result import SeverityLevel, Finding
@@ -13,7 +11,6 @@ SEVERITY_ORDER = {
     SeverityLevel.LOW:      3,
     SeverityLevel.INFO:     4,
 }
-
 
 def _deduplicate_findings(findings: list[Finding]) -> list[Finding]:
     """Remove duplicatas por título + categoria."""
@@ -32,13 +29,11 @@ def _deduplicate_findings(findings: list[Finding]) -> list[Finding]:
 
     return list(seen.values())
 
-
 async def aggregator_node(state: AegisState) -> dict:
     """
     Lê raw_findings (acumulados), deduplica e
     escreve em findings (lista final limpa).
     """
-    # ✅ Lê de raw_findings
     raw_findings = state.get("raw_findings", [])
 
     unique_findings = _deduplicate_findings(raw_findings)
@@ -60,7 +55,6 @@ async def aggregator_node(state: AegisState) -> dict:
         f"{critical_count} críticos"
     )
 
-    # ✅ Escreve em findings (substitui, não acumula)
     return {
         "findings": sorted_findings,
         "current_step": "summarizing",

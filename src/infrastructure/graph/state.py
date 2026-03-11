@@ -11,20 +11,15 @@ class AegisState(TypedDict):
     raw_findings  → acumula com Annotated[list, add] (nós paralelos)
     findings      → lista final após deduplicação (aggregator_node)
     """
-    # Input
     request: AnalysisRequest
 
-    # Controle de fluxo
     active_analysis_types: list[str]
     current_step: str
     errors: Annotated[list[str], add]
 
-    # Findings BRUTOS dos nós paralelos (acumulados via add)
     raw_findings: Annotated[list[Finding], add]
 
-    # Findings FINAIS após deduplicação (substitui, não acumula)
     findings: list[Finding]
 
-    # Output final
     summary: AnalysisSummary | None
     processing_time_ms: int

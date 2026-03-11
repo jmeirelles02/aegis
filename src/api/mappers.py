@@ -1,12 +1,9 @@
-# src/api/mappers.py
-
 from src.core.entities.analysis_result import AnalysisResult
 from src.api.schemas import (
     AnalysisResponse,
     FindingResponse,
     SummaryResponse,
 )
-
 
 def to_analysis_response(result: AnalysisResult) -> AnalysisResponse:
     """Converte entidade de domínio → schema de resposta da API."""

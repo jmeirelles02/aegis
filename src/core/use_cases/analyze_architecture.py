@@ -1,5 +1,3 @@
-# src/core/use_cases/analyze_architecture.py
-
 import time
 import logging
 from src.core.interfaces.llm_gateway import LLMGateway
@@ -8,7 +6,6 @@ from src.core.entities.analysis_request import AnalysisRequest
 from src.core.entities.analysis_result import AnalysisResult
 
 logger = logging.getLogger(__name__)
-
 
 class AnalyzeArchitectureUseCase:
     """
@@ -41,13 +38,10 @@ class AnalyzeArchitectureUseCase:
 
         start = time.monotonic()
 
-        # 1. Valida o request
         self._validate(request)
 
-        # 2. Executa a análise via LLM
         result = await self._llm_gateway.analyze(request)
 
-        # 3. Persiste
         saved = await self._repository.save(result)
 
         elapsed = int((time.monotonic() - start) * 1000)

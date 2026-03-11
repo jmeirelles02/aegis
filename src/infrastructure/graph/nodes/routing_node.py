@@ -4,7 +4,6 @@ from src.core.entities.analysis_request import AnalysisType
 
 logger = logging.getLogger(__name__)
 
-
 async def routing_node(state: AegisState) -> dict:
     """
     Nó de roteamento: decide quais agentes de análise serão acionados.
@@ -16,7 +15,6 @@ async def routing_node(state: AegisState) -> dict:
     return {
         "current_step": "analyzing",
     }
-
 
 def route_to_analyzers(state: AegisState) -> list[str]:
     """

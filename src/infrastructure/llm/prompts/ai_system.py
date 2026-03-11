@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/ai_system.py
-
 AI_SYSTEM_PROMPT = """
 ## Análise de Sistema de IA/ML
 

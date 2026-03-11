@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/solid_validator.py
-
 SOLID_ANALYSIS_PROMPT = """
 ## Validação de Princípios SOLID e Clean Architecture
 

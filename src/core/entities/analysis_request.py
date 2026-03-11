@@ -1,25 +1,20 @@
-# src/core/entities/analysis_request.py
-
 from pydantic import BaseModel, Field
 from enum import Enum
 
-
 class AnalysisType(str, Enum):
     """Tipos de análise que o Aegis suporta."""
-    ARCHITECTURE   = "architecture"    # Análise geral de arquitetura
-    SOLID          = "solid"           # Validação de princípios SOLID
-    PERFORMANCE    = "performance"     # Gargalos e otimizações
-    SECURITY       = "security"        # Vulnerabilidades e boas práticas
-    DATA_PIPELINE  = "data_pipeline"   # Fluxos de dados (Eng. de Dados)
-    AI_SYSTEM      = "ai_system"       # Sistemas de IA/ML
-
+    ARCHITECTURE   = "architecture"# Análise geral de arquitetura
+    SOLID          = "solid"# Validação de princípios SOLID
+    PERFORMANCE    = "performance"# Gargalos e otimizações
+    SECURITY       = "security"# Vulnerabilidades e boas práticas
+    DATA_PIPELINE  = "data_pipeline"# Fluxos de dados (Eng. de Dados)
+    AI_SYSTEM      = "ai_system"# Sistemas de IA/ML
 
 class AnalysisDepth(str, Enum):
     """Profundidade da análise."""
-    QUICK    = "quick"       # Revisão rápida (~30s)
-    STANDARD = "standard"   # Análise padrão (~1min)
-    DEEP     = "deep"        # Análise profunda (~2min)
-
+    QUICK    = "quick"# Revisão rápida (~30s)
+    STANDARD = "standard"# Análise padrão (~1min)
+    DEEP     = "deep"# Análise profunda (~2min)
 
 class AnalysisRequest(BaseModel):
     """

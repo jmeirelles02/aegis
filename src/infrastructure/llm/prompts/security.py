@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/security.py
-
 SECURITY_ANALYSIS_PROMPT = """
 ## Análise de Segurança
 

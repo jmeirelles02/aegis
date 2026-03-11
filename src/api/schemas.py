@@ -1,12 +1,8 @@
-# src/api/schemas.py
-
 from pydantic import BaseModel, Field
 from datetime import datetime
 from src.core.entities.analysis_request import AnalysisType, AnalysisDepth
 from src.core.entities.analysis_result import SeverityLevel
 
-
-# ── Request ─────────────────────────────────────────────────────────────────
 
 class AnalysisRequestSchema(BaseModel):
     """Schema de entrada da API."""
@@ -40,8 +36,6 @@ class AnalysisRequestSchema(BaseModel):
         }
     }
 
-
-# ── Response ─────────────────────────────────────────────────────────────────
 
 class FindingResponse(BaseModel):
     severity: SeverityLevel

@@ -1,5 +1,3 @@
-# src/infrastructure/llm/prompts/performance.py
-
 PERFORMANCE_ANALYSIS_PROMPT = """
 ## Análise de Performance e Escalabilidade
 

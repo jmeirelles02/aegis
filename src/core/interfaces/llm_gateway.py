@@ -1,9 +1,6 @@
-# src/core/interfaces/llm_gateway.py
-
 from abc import ABC, abstractmethod
 from src.core.entities.analysis_request import AnalysisRequest
 from src.core.entities.analysis_result import AnalysisResult
-
 
 class LLMGateway(ABC):
     """
