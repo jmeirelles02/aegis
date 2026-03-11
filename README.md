@@ -106,7 +106,7 @@ Crie um arquivo `.env` na raiz:
 
 ```env
 GOOGLE_API_KEY=coloque_sua_api_key_aqui
-GEMINI_MODEL=gemini-1.5-flash
+GEMINI_MODEL=escolha-seu-modelo
 
 APP_ENV=development
 APP_DEBUG=true
@@ -117,7 +117,6 @@ LLM_TEMPERATURE=0.3
 LLM_MAX_TOKENS=8192
 ```
 
-> Se você receber erro 429 (quota), o `gemini-1.5-flash` costuma ser o mais amigável no free tier.
 
 ### 4) Subir o servidor
 ```bash
@@ -174,3 +173,4 @@ Você vai receber:
 - Observabilidade (logs estruturados + métricas)
 - Proteções contra prompt injection
 - Mais nós (ex.: “Reviewer Node” para revisar a própria resposta antes de retornar)
+
