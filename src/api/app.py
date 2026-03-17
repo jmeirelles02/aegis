@@ -28,7 +28,7 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.app_name,
         description=(
-            "🛡️ Aegis — Shadow Architect\n\n"
+            "Aegis\n\n"
             "Analisa propostas de arquitetura de software com foco em "
             "escalabilidade, segurança, SOLID e Clean Architecture."
         ),

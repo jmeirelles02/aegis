@@ -9,7 +9,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    app_name: str = Field(default="Aegis - Shadow Architect")
+    app_name: str = Field(default="Shadow Architect")
     app_env: str = Field(default="development")
     app_debug: bool = Field(default=False)
     app_host: str = Field(default="0.0.0.0")
