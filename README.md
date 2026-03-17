@@ -53,3 +53,17 @@ O modelo responde em formato JSON. O sistema faz validações defensivas para ev
 
 ### 3) LangGraph
 O LangGraph orquestra o fluxo de execução. Ele representa o trabalho como um grafo de estado.
+
+## Como o sistema foi construído
+
+1. Clean Architecture no Backend
+O backend separa as responsabilidades em diretórios específicos. A pasta core/ guarda as regras de negócio puras. A pasta infrastructure/ contém as integrações com ferramentas externas. A pasta api/ gerencia as rotas de comunicação. Imagine um computador de mesa. Você troca a placa de vídeo sem alterar o processador. O núcleo do projeto independe do framework web ou do modelo de inteligência artificial.
+
+2. Integração com Gemini e JSON
+O modelo do Google Gemini atua como o motor de análise. Ele processa o contexto e gera respostas estruturadas no formato JSON. O sistema executa validações defensivas constantes no código. Essas validações evitam falhas de formatação ou erros de leitura. Pense nisso como um inspetor de qualidade em uma fábrica. O inspetor verifica cada pacote detalhadamente antes da liberação.
+
+3. Orquestração com LangGraph
+O LangGraph controla o fluxo de execução da inteligência artificial. Ele mapeia o trabalho do agente como um grafo de estado. Pense em uma linha de montagem automotiva. Cada robô da linha tem uma tarefa exata e delimitada. A validação da sua arquitetura avança de uma etapa para a outra de forma previsível e controlada.
+
+4. Interface em Streamlit
+O frontend utiliza a biblioteca Streamlit. Ela transforma o código Python em uma página web interativa rapidamente. O Streamlit funciona como o painel de um carro. O painel esconde a complexidade mecânica do motor e oferece controles simples para o motorista. A interface coleta as entradas do usuário e consome os resultados finais comunicando com a API.
