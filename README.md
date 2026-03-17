@@ -54,5 +54,5 @@ O modelo responde em formato JSON. O sistema faz validações defensivas para ev
 ### 3) LangGraph
 O LangGraph orquestra o fluxo de execução. Ele representa o trabalho como um grafo de estado.
 
-## 4) Interface em Streamlit
+### 4) Interface em Streamlit
 O Streamlit transforma o código Python em uma página web interativa rapidamente. A interface coleta as entradas do usuário e consome os resultados finais comunicando com a API.
